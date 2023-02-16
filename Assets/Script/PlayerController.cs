@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
         }
 
         Body.velocity = playerMovement;
+        if (Physics.Raycast(transform.position, transform.forward, 10, GroundMask))
+            Debug.Log("Colpito");
+
+        Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
     }
 
     private void OnCollisionEnter(Collision collision)
